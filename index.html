@@ -251,7 +251,7 @@
 
             <!-- DYNAMIC FEATURED CARD -->
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-12">
-                <!-- REMOVED (Rotating) -->
+                <!-- Title is now just "Featured Service" -->
                 <h3 class="text-4xl font-extrabold text-center accent-text mb-8">Featured Service</h3>
                 
                 <div id="feature-card" class="personal-card overflow-hidden feature-card-animation">
@@ -822,8 +822,8 @@
         function startFeatureRotation() {
             updateFeaturedCard(); // Load first feature immediately
             if (featureIntervalId) clearInterval(featureIntervalId);
-            // Rotate every 6 seconds (6000 milliseconds)
-            featureIntervalId = setInterval(updateFeaturedCard, 6000); 
+            // Rotates every 18 seconds (6 seconds * 3)
+            featureIntervalId = setInterval(updateFeaturedCard, 18000); 
         }
 
         // --- MODAL LOGIC ---
