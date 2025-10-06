@@ -138,6 +138,17 @@
         .image-clickable {
             cursor: pointer;
         }
+
+        /* Carousel specific style for height */
+        #slides-container > div {
+            height: 20rem; /* Fixed height for small screens */
+        }
+
+        @media (min-width: 640px) {
+            #slides-container > div {
+                height: 24rem; /* Fixed height for larger screens */
+            }
+        }
     </style>
     
     <script>
@@ -160,13 +171,12 @@
 <body class="min-h-screen">
 
     <!-- 1. MAIN NAVIGATION (Sticky & Full Width, two rows) -->
-    <!-- Navigation header is fully opaque (bg-dark-bg) -->
     <nav class="sticky top-0 z-50 bg-dark-bg shadow-xl">
         
         <!-- Row 1: Brand Name Header (Elvine's Salon) + Slogan + Icon -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 h-auto border-b border-gray-700/50 text-center">
             <div class="flex items-center justify-center space-x-3 mb-1">
-                <!-- Round Icon: roundic-everywhere.jpg (Updated Path) -->
+                <!-- Round Icon -->
                 <img src="https://elvobossy.github.io/roundic-everywhere.jpg" 
                      onerror="this.onerror=null; this.src='https://placehold.co/60x60/00BCD4/FFFFFF?text=E';" 
                      alt="Elvine's Salon Logo" 
@@ -176,18 +186,17 @@
                     ELVINE'S <span class="accent-text">SALON</span>
                 </h1>
             </div>
-            <!-- SEO Slogan - Made shorter for impact -->
+            <!-- SEO Slogan -->
             <p class="text-sm sm:text-base text-gray-400 font-medium italic">
                 Nairobi's Premier Salon for Authentic Kenyan Braiding, Locs, and Mobile Beauty.
             </p>
         </div>
 
-        <!-- Row 2: Tab Links (With Icons and Service Tab Styling) -->
+        <!-- Row 2: Tab Links -->
         <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 flex items-stretch">
             <a id="nav-home" data-section="home-content" class="main-tab active rounded-tl-lg text-sm sm:text-base" onclick="switchMainContent(this)">
                 <i class="fas fa-home mr-1"></i> Home
             </a>
-            <!-- Updated main navigation icon to scissors -->
             <a id="nav-services" data-section="services-content" class="main-tab text-sm sm:text-base" onclick="switchMainContent(this)">
                 <i class="fas fa-scissors mr-1"></i> Services
             </a>
@@ -209,18 +218,17 @@
         <!-- 2. HOME SECTION (Default Active Content) -->
         <section id="home-content" class="main-content">
             <div class="relative overflow-hidden pt-4 pb-12 md:pt-12 md:pb-24">
-                <!-- Background Image Update: homebg-banner.jpg -->
+                <!-- Background Image -->
                 <div class="absolute inset-0 -z-10">
                     <img src="https://elvobossy.github.io/homebg-banner.jpg" 
                          onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/1a1a1a/00BCD4?text=Professional+Stylist+at+Work';" 
                          alt="Luxurious Salon Interior Banner" class="w-full h-full object-cover"> 
-                    <!-- Dark Overlay for Readability - REVERTED opacity to /50 -->
+                    <!-- Dark Overlay for Readability -->
                     <div class="absolute inset-0 bg-dark-bg/50"></div>
                 </div>
                 
                 <!-- Hero Content -->
                 <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <!-- Title Size Reduced (text-7xl to text-6xl) & Accented -->
                     <h1 class="text-4xl sm:text-6xl font-extrabold leading-snug text-white uppercase">
                         <span class="block">KARIBU! WELCOME TO <span class="accent-text">ELVINE'S SALON</span></span>
                     </h1>
@@ -238,7 +246,32 @@
                 </div>
             </div>
 
-            <!-- Sample Services Grid (Home Images) -->
+            <!-- New: Auto-Advancing Carousel/Slider (NOW BEFORE Signature Expertise) -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-12">
+                <h3 class="text-4xl font-extrabold text-center accent-text mb-8">Random Project Highlights</h3>
+                <div id="image-carousel" class="relative overflow-hidden rounded-2xl shadow-2xl personal-card border border-main-accent/30">
+                    <!-- Slides Container - Content is now dynamically injected by JS -->
+                    <div id="slides-container" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- JS will inject the random images here -->
+                    </div>
+                    
+                    <!-- Dots Navigation -->
+                    <div id="carousel-dots" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                        <!-- Dots will be populated by JS -->
+                    </div>
+                    
+                    <!-- Left/Right Arrows -->
+                    <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition focus:outline-none">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition focus:outline-none">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- End Carousel -->
+
+            <!-- Sample Services Grid (Home Images - Signature Expertise) -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
                 <h3 class="text-4xl font-extrabold text-center secondary-accent-text mb-12">Our Signature Expertise</h3>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
@@ -289,6 +322,7 @@
 
                 </div>
             </div>
+
         </section>
 
         <!-- 3. SERVICES SECTION (Hidden by default) -->
@@ -426,11 +460,12 @@
         <section id="about-content" class="main-content hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <!-- Stylist Image: stylistelvine-aboutus.jpg (UPDATED PATH) -->
+                    <!-- Stylist Image: stylistelvine-aboutus.jpg -->
                     <div class="personal-card overflow-hidden">
+                        <!-- Note: User requested to crop the person out, using a generic image for the stylist's bio -->
                         <img src="https://elvobossy.github.io/stylistelvine-aboutus.jpg" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/3A3A3A/FF9800?text=Stylist+Elvine';" 
-                             alt="Professional Stylist" class="w-full h-auto object-cover image-clickable" onclick="openModal(this)">
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/3A3A3A/FF9800?text=Stylist+Workspace';" 
+                             alt="Professional Stylist Workspace" class="w-full h-auto object-cover image-clickable" onclick="openModal(this)">
                     </div>
                     <!-- Text Content -->
                     <div class="space-y-6">
@@ -527,7 +562,6 @@
                     <p class="text-gray-300 mb-6">If you don't see your perfect look, send us a photo or description directly via WhatsApp for a custom quote.</p>
                     
                     <!-- WhatsApp Link with Pre-filled Message -->
-                    <!-- The URL uses the standard wa.me format without the plus sign, and includes a URL-encoded pre-filled message. -->
                     <a href="https://wa.me/254717345814?text=Dream%20Style%20Request:%20I%20am%20looking%20for%20a%20unique%20style." 
                        target="_blank" 
                        class="accent-bg text-black font-bold text-lg w-full md:w-auto inline-block py-3 px-10 rounded-full shadow-xl hover:scale-105 transform transition duration-300">
@@ -550,7 +584,7 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl font-extrabold text-white mb-4 border-b border-gray-700 pb-2">Get in Touch</h3>
                         
-                        <!-- UPDATED ADDRESS (Keep address info here since this is the contact section) -->
+                        <!-- ADDRESS -->
                         <div class="flex items-start space-x-3">
                             <i class="fas fa-map-marker-alt text-xl accent-text pt-1"></i>
                             <div>
@@ -568,7 +602,7 @@
                             </div>
                         </div>
 
-                        <!-- WHATSAPP OPTION (NEW) -->
+                        <!-- WHATSAPP OPTION -->
                         <div class="flex items-start space-x-3">
                             <i class="fab fa-whatsapp text-xl accent-text pt-1"></i>
                             <div>
@@ -615,7 +649,7 @@
 
     </main>
 
-    <!-- 7. FOOTER (UPDATED: Only direct contact links remain) -->
+    <!-- 7. FOOTER (Mail used instead of Email, as requested) -->
     <footer class="bg-surface-dark py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
@@ -634,19 +668,19 @@
                     <span class="text-xs font-medium">WhatsApp</span>
                 </a>
 
-                <!-- Email -->
+                <!-- Mail (Updated) -->
                 <a href="mailto:elvobossy@gmail.com" class="text-gray-300 hover:text-main-accent transition duration-300 flex flex-col items-center p-2 rounded-lg hover:bg-gray-800" aria-label="Email Elvine's Salon">
                     <i class="fas fa-envelope text-2xl mb-1"></i>
-                    <span class="text-xs font-medium">Email</span>
+                    <span class="text-xs font-medium">Mail</span>
                 </a>
             </div>
             
-            <!-- Copyright (Added padding and border for separation after removing social icons) -->
+            <!-- Copyright -->
             <p class="text-sm text-gray-500 mt-6 pt-4 border-t border-gray-700">&copy; 2024 Elvine's Personal Salon. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- The Modal/Lightbox Component (Added for Image Expansion) -->
+    <!-- The Modal/Lightbox Component -->
     <div id="imageModal" class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 opacity-0 pointer-events-none" onclick="closeModal(event)">
         <!-- Modal Content Container -->
         <div class="relative max-w-7xl w-11/12 m-4 rounded-xl overflow-hidden shadow-2xl">
@@ -662,8 +696,166 @@
         </div>
     </div>
 
-    <!-- JavaScript for Tab Functionality, Modal, and Custom Request Form -->
+    <!-- JavaScript for Tab Functionality, Modal, and Carousel -->
     <script>
+        
+        let carouselInterval;
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slidesContainer;
+        let slideWidth = 0;
+        
+        // 1. Define the complete list of gallery image URLs (Source for random carousel)
+        const galleryImageUrls = [
+            { src: 'https://elvobossy.github.io/naturaltw-gallery.jpg', alt: 'Natural Twists' },
+            { src: 'https://elvobossy.github.io/kinkytw-gallery.jpg', alt: 'Kinky Twists' },
+            { src: 'https://elvobossy.github.io/dreadlock-gallery.jpg', alt: 'Dreadlock Retwist' },
+            { src: 'https://elvobossy.github.io/sisterlock-gallery.jpg', alt: 'Sisterlock Pattern' },
+            { src: 'https://elvobossy.github.io/protecrows-gallery.jpg', alt: 'Protective Cornrows' },
+            { src: 'https://elvobossy.github.io/docnrows-gallery.jpg', alt: 'Designer Cornrows' },
+            { src: 'https://elvobossy.github.io/kidsrows-gallery.jpg', alt: 'Kids Cornrows' },
+            { src: 'https://elvobossy.github.io/knotless-gallery.jpg', alt: 'Knotless Braids Style' }
+        ];
+
+        /**
+         * Shuffles an array using the Fisher-Yates (Knuth) algorithm.
+         * @param {Array<Object>} array - The array to shuffle.
+         * @returns {Array<Object>} The shuffled array.
+         */
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        /**
+         * Initializes the image carousel functionality.
+         */
+        function initializeCarousel() {
+            slidesContainer = document.getElementById('slides-container');
+            if (!slidesContainer) return;
+            
+            // Clear existing content
+            slidesContainer.innerHTML = '';
+            
+            // 2. Randomly select 4 images from the gallery
+            const shuffledImages = shuffleArray([...galleryImageUrls]);
+            const carouselImages = shuffledImages.slice(0, 4);
+            totalSlides = carouselImages.length;
+            
+            if (totalSlides === 0) return;
+
+            // 3. Dynamically create slide elements
+            carouselImages.forEach((imgData, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'w-full flex-shrink-0'; // height is defined in <style>
+                
+                const img = document.createElement('img');
+                img.src = imgData.src;
+                img.alt = imgData.alt;
+                img.className = 'w-full h-full object-cover';
+                img.onerror = () => { 
+                    img.src = `https://placehold.co/1200x400/4D4D4D/${index % 2 === 0 ? '00BCD4' : 'FF9800'}?text=${imgData.alt}`; 
+                };
+
+                slide.appendChild(img);
+                slidesContainer.appendChild(slide);
+            });
+            
+            // Re-calculate width and set up nav
+            const slides = slidesContainer.children;
+            slideWidth = slides.length > 0 ? slides[0].clientWidth : 0;
+            const prevButton = document.getElementById('prev-slide');
+            const nextButton = document.getElementById('next-slide');
+            const dotsContainer = document.getElementById('carousel-dots');
+            
+            // 4. Setup Dots
+            dotsContainer.innerHTML = ''; 
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'w-3 h-3 rounded-full bg-gray-400 opacity-70 hover:opacity-100 transition duration-300';
+                dot.setAttribute('data-slide-index', i);
+                dot.onclick = () => { stopAutoAdvance(); goToSlide(i); startAutoAdvance(); };
+                dotsContainer.appendChild(dot);
+            }
+            
+            // 5. Navigation Handlers
+            prevButton.onclick = () => { stopAutoAdvance(); prevSlide(); startAutoAdvance(); };
+            nextButton.onclick = () => { stopAutoAdvance(); nextSlide(); startAutoAdvance(); };
+
+            // 6. Start Auto-Advance
+            startAutoAdvance();
+
+            // 7. Initial state update
+            goToSlide(0);
+        }
+
+        /**
+         * Starts the auto-advancing interval for the carousel.
+         */
+        function startAutoAdvance() {
+            clearInterval(carouselInterval);
+            // Advance every 5 seconds
+            carouselInterval = setInterval(nextSlide, 3500); // Set to 3.5 seconds
+        }
+
+        /**
+         * Stops the auto-advancing interval.
+         */
+        function stopAutoAdvance() {
+            clearInterval(carouselInterval);
+        }
+
+        /**
+         * Navigates to a specific slide index.
+         * @param {number} index - The index of the slide to show.
+         */
+        function goToSlide(index) {
+            if (!slidesContainer) return;
+            currentSlide = (index + totalSlides) % totalSlides; // Handle wrapping
+            
+            // Recalculate width on transition to ensure responsiveness
+            const slides = slidesContainer.children;
+            if (slides.length > 0) {
+                slideWidth = slides[0].clientWidth;
+            } else {
+                 return;
+            }
+            
+            const offset = -currentSlide * slideWidth;
+            slidesContainer.style.transform = `translateX(${offset}px)`;
+            updateDots();
+        }
+
+        /**
+         * Advances to the next slide.
+         */
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        /**
+         * Goes back to the previous slide.
+         */
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        /**
+         * Updates the visual state of the carousel dots.
+         */
+        function updateDots() {
+            document.querySelectorAll('#carousel-dots button').forEach((dot, index) => {
+                dot.classList.remove('bg-main-accent', 'opacity-100');
+                dot.classList.add('bg-gray-400', 'opacity-70');
+                if (index === currentSlide) {
+                    dot.classList.add('bg-main-accent', 'opacity-100');
+                    dot.classList.remove('bg-gray-400', 'opacity-70');
+                }
+            });
+        }
         
         /**
          * Switches the active MAIN content section (Home, Services, About Us, etc.).
@@ -692,7 +884,6 @@
                 
                 // If the Services tab is clicked, ensure the Hair tab is visible
                 if (targetContentId === 'services-content') {
-                    // Check and activate hair tab if not already active
                     const hairTabButton = document.querySelector('.tab-button[data-tab="hair"]');
                     if (hairTabButton && !hairTabButton.classList.contains('active')) {
                         switchServiceTab(hairTabButton, 'hair');
@@ -728,7 +919,7 @@
             }
         }
         
-        // Modal Logic (Added)
+        // Modal Logic
         const imageModal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
 
@@ -737,6 +928,7 @@
          * @param {HTMLImageElement} clickedImage - The image element that was clicked.
          */
         function openModal(clickedImage) {
+            stopAutoAdvance(); // Pause carousel
             // Use the current image src as the full source
             const fullSrc = clickedImage.getAttribute('src');
             const altText = clickedImage.getAttribute('alt');
@@ -768,6 +960,7 @@
 
             // Restore scrolling on the body
             document.body.style.overflow = 'auto';
+            startAutoAdvance(); // Restart carousel
         }
 
         // Custom Message Box function (replaces alert/confirm)
@@ -791,8 +984,8 @@
 
 
         
-        // Initialize the first tab 
-        document.addEventListener('DOMContentLoaded', () => {
+        // Initialize the first tab and carousel on window load
+        window.onload = function () {
              // Main Tab Initialization
              const initialMainTab = document.getElementById('nav-home');
              if(initialMainTab) {
@@ -808,7 +1001,20 @@
                      initialServiceContent.classList.remove('hidden');
                  }
              }
-        });
+
+             // Initialize the Carousel
+             initializeCarousel();
+             
+             // Re-initialize carousel on window resize to fix slide width
+             window.addEventListener('resize', () => {
+                 // Debounce resize events for performance
+                 clearTimeout(window.resizeTimer);
+                 window.resizeTimer = setTimeout(() => {
+                    stopAutoAdvance();
+                    initializeCarousel(); // Recalculates width and restarts auto-advance
+                 }, 250);
+             });
+        };
     </script>
 </body>
 </html>
