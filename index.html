@@ -130,6 +130,15 @@
             background-color: #2C2C2C; /* Darker hover state */
             color: var(--text-light);
         }
+        
+        /* Modal Backdrop */
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        /* Make images clickable */
+        .image-clickable {
+            cursor: pointer;
+        }
     </style>
     
     <script>
@@ -203,6 +212,7 @@
             <div class="relative overflow-hidden pt-4 pb-12 md:pt-12 md:pb-24">
                 <!-- Background Placeholder Image (Faded) -->
                 <div class="absolute inset-0 -z-10">
+                    <!-- Image is NOT clickable as it's a background element -->
                     <img src="https://placehold.co/1920x1080/1a1a1a/00BCD4?text=Professional+Stylist+at+Work" 
                          onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/1a1a1a/00BCD4';" 
                          alt="Abstract beauty salon background" class="w-full h-full object-cover opacity-20">
@@ -239,7 +249,7 @@
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvines.github.io/knotless-home.png" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Knotless+Braids';" 
-                             alt="Knotless Braids Example" class="w-full h-auto object-cover transition duration-500 hover:scale-105">
+                             alt="Knotless Braids Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
                             <h4 class="text-xl font-semibold accent-text">Protective Braiding</h4>
                             <p class="text-gray-400 text-sm">Neat, knotless, long-lasting styles.</p>
@@ -250,7 +260,7 @@
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvines.github.io/locksretw-home.png" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Locs+%26+Retwist';" 
-                             alt="Locs Retwist Example" class="w-full h-auto object-cover transition duration-500 hover:scale-105">
+                             alt="Locs Retwist Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
                             <h4 class="text-xl font-semibold accent-text">Loc Maintenance</h4>
                             <p class="text-gray-400 text-sm">Professional retwist and health focus.</p>
@@ -261,7 +271,7 @@
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvines.github.io/makeup-home.png" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Bridal+Makeup';" 
-                             alt="Makeup Artistry Example" class="w-full h-auto object-cover transition duration-500 hover:scale-105">
+                             alt="Makeup Artistry Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
                             <h4 class="text-xl font-semibold accent-text">Makeup Artistry</h4>
                             <p class="text-gray-400 text-sm">Flawless, long-wear event glam.</p>
@@ -272,7 +282,7 @@
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvines.github.io/nailsart-home.png" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Acrylic+Nails+Art';" 
-                             alt="Nail Art Example" class="w-full h-auto object-cover transition duration-500 hover:scale-105">
+                             alt="Nail Art Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
                             <h4 class="text-xl font-semibold accent-text">Manicures & Pedicures</h4>
                             <p class="text-gray-400 text-sm">Hygienic and artistic nail care.</p>
@@ -326,8 +336,9 @@
                                     
                                     <!-- Sisterlocks -->
                                     <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4 flex items-center space-x-4">
+                                        <!-- Placeholder Image (Clickable) -->
                                         <img src="https://placehold.co/100x100/1e1e1e/FF9800?text=S-L" 
-                                             alt="Sisterlocks Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-secondary-accent">
+                                             alt="Sisterlocks Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-secondary-accent image-clickable" onclick="openModal(this)">
                                         <div class="flex-grow">
                                             <h5 class="text-xl font-semibold accent-text mb-1">Sisterlocks</h5>
                                             <p class="text-gray-400 text-sm">Interlocking natural hair for tiny, uniform locs. Requires prior consultation and specialized technique.</p>
@@ -337,8 +348,9 @@
 
                                     <!-- Dreadlocks -->
                                     <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4 flex items-center space-x-4">
+                                        <!-- Placeholder Image (Clickable) -->
                                         <img src="https://placehold.co/100x100/1e1e1e/FF9800?text=DR" 
-                                             alt="Dreadlocks Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-secondary-accent">
+                                             alt="Dreadlocks Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-secondary-accent image-clickable" onclick="openModal(this)">
                                         <div class="flex-grow">
                                             <h5 class="text-xl font-semibold accent-text mb-1">Dreadlocks & Retwist</h5>
                                             <p class="text-gray-400 text-sm">Professional maintenance, retwisting, and deep conditioning for traditional locs.</p>
@@ -348,8 +360,9 @@
 
                                     <!-- Micro-Twist & Twist-Out -->
                                     <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4 flex items-center space-x-4">
+                                        <!-- Placeholder Image (Clickable) -->
                                         <img src="https://placehold.co/100x100/1e1e1e/FF9800?text=MT" 
-                                             alt="Micro-Twist Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-secondary-accent">
+                                             alt="Micro-Twist Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-secondary-accent image-clickable" onclick="openModal(this)">
                                         <div class="flex-grow">
                                             <h5 class="text-xl font-semibold accent-text mb-1">Micro-Twist & Twist-Out</h5>
                                             <p class="text-gray-400 text-sm">Small, neat twists on natural hair or with extensions, perfect for a lightweight look, plus definition styling.</p>
@@ -364,8 +377,9 @@
 
                                     <!-- Ethiopian Lines & Cornrows -->
                                     <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4 flex items-center space-x-4">
+                                        <!-- Placeholder Image (Clickable) -->
                                         <img src="https://placehold.co/100x100/1e1e1e/00BCD4?text=CR" 
-                                             alt="Cornrows Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-accent-main">
+                                             alt="Cornrows Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-accent-main image-clickable" onclick="openModal(this)">
                                         <div class="flex-grow">
                                             <h5 class="text-xl font-semibold accent-text mb-1">Cornrows & Ethiopian Lines</h5>
                                             <p class="text-gray-400 text-sm">Intricate and classic cornrows, including complex geometric "Ethiopian Lines" designs.</p>
@@ -375,8 +389,9 @@
                                     
                                     <!-- Knotless Braids -->
                                     <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4 flex items-center space-x-4">
+                                        <!-- Placeholder Image (Clickable) -->
                                         <img src="https://placehold.co/100x100/1e1e1e/00BCD4?text=KB" 
-                                             alt="Knotless Braids Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-accent-main">
+                                             alt="Knotless Braids Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-accent-main image-clickable" onclick="openModal(this)">
                                         <div class="flex-grow">
                                             <h5 class="text-xl font-semibold accent-text mb-1">Knotless Braids (Box/Triangle)</h5>
                                             <p class="text-gray-400 text-sm">Our signature protective style, offering less tension and a natural grow-out look.</p>
@@ -386,8 +401,9 @@
 
                                     <!-- Havana-Curl & Weaving -->
                                     <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4 flex items-center space-x-4">
+                                        <!-- Placeholder Image (Clickable) -->
                                         <img src="https://placehold.co/100x100/1e1e1e/00BCD4?text=WV" 
-                                             alt="Weave/Crochet Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-accent-main">
+                                             alt="Weave/Crochet Icon" class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-accent-main image-clickable" onclick="openModal(this)">
                                         <div class="flex-grow">
                                             <h5 class="text-xl font-semibold accent-text mb-1">Havana-Curl & Weaving</h5>
                                             <p class="text-gray-400 text-sm">Voluminous kinky twists (Havana-Curl) and professional, flat sew-in weaving/frontal installs.</p>
@@ -468,7 +484,7 @@
                     <div class="personal-card overflow-hidden">
                         <img src="https://elvines.github.io/stylist-aboutus.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/800x600/3A3A3A/FF9800?text=Stylist+Elvine';" 
-                             alt="Professional Stylist" class="w-full h-auto object-cover">
+                             alt="Professional Stylist" class="w-full h-auto object-cover image-clickable" onclick="openModal(this)">
                     </div>
                     <!-- Text Content -->
                     <div class="space-y-6">
@@ -502,76 +518,88 @@
                     <!-- Gallery Item 1: naturaltw-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/naturaltw-gallery.jpg" 
-                             alt="Natural two-strand twist style" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Natural+Twists';">
+                             alt="Natural two-strand twist style" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Natural+Twists';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 2: kinkytw-gallery.jpeg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/kinkytw-gallery.jpeg" 
-                             alt="Kinky two-strand twist style" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Kinky+Twists';">
+                             alt="Kinky two-strand twist style" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Kinky+Twists';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 3: dreadlock-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/dreadlock-gallery.jpg" 
-                             alt="Dreadlock retwist" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Dreadlocks';">
+                             alt="Dreadlock retwist" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Dreadlocks';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 4: sisterlock-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/sisterlock-gallery.jpg" 
-                             alt="Sisterlock intricate pattern" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Sisterlocks';">
+                             alt="Sisterlock intricate pattern" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Sisterlocks';"
+                             onclick="openModal(this)">
                     </div>
 
                     <!-- Gallery Item 5: cornrows-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/cornrows-gallery.jpg" 
-                             alt="Creative cornrows hairstyle" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Cornrows';">
+                             alt="Creative cornrows hairstyle" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Cornrows';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 6: knotless-gallery.webp -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/knotless-gallery.webp" 
-                             alt="Knotless braids in webp format" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/FF9800?text=Knotless+WebP';">
+                             alt="Knotless braids in webp format" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/FF9800?text=Knotless+WebP';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 7: knotless-gallery.png -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/knotless-gallery.png" 
-                             alt="Knotless braids in png format" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/00BCD4?text=Knotless+PNG';">
+                             alt="Knotless braids in png format" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/00BCD4?text=Knotless+PNG';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 8 (Repeated 1): naturaltw-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/naturaltw-gallery.jpg" 
-                             alt="Natural twist updo (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Natural+Twists+2';">
+                             alt="Natural twist updo (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Natural+Twists+2';"
+                             onclick="openModal(this)">
                     </div>
 
                     <!-- Gallery Item 9 (Repeated 2): kinkytw-gallery.jpeg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/kinkytw-gallery.jpeg" 
-                             alt="Kinky twist detail (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Kinky+Twists+2';">
+                             alt="Kinky twist detail (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Kinky+Twists+2';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 10 (Repeated 3): dreadlock-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/dreadlock-gallery.jpg" 
-                             alt="Dreadlock side view (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Dreadlocks+2';">
+                             alt="Dreadlock side view (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Dreadlocks+2';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 11 (Repeated 4): sisterlock-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/sisterlock-gallery.jpg" 
-                             alt="Sisterlock texture (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/00BCD4?text=Sisterlocks+2';">
+                             alt="Sisterlock texture (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/00BCD4?text=Sisterlocks+2';"
+                             onclick="openModal(this)">
                     </div>
                     <!-- Gallery Item 12 (Repeated 5): cornrows-gallery.jpg -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
                         <img src="https://elvines.github.io/cornrows-gallery.jpg" 
-                             alt="Cornrows pattern (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/121212/FF9800?text=Cornrows+2';">
+                             alt="Cornrows pattern (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/121212/FF9800?text=Cornrows+2';"
+                             onclick="openModal(this)">
                     </div>
                 </div>
             </div>
@@ -655,7 +683,23 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Tab Functionality -->
+    <!-- The Modal/Lightbox Component (Added for Image Expansion) -->
+    <div id="imageModal" class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 opacity-0 pointer-events-none" onclick="closeModal(event)">
+        <!-- Modal Content Container -->
+        <div class="relative max-w-7xl w-11/12 m-4 rounded-xl overflow-hidden shadow-2xl">
+            <!-- Expanded Image -->
+            <img id="modalImage" src="" alt="Expanded View" class="max-h-[90vh] w-auto mx-auto object-contain rounded-lg">
+
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-secondary-accent transition duration-150 p-2 rounded-full bg-gray-800 bg-opacity-50 focus:outline-none" aria-label="Close">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Tab Functionality and Modal -->
     <script>
         
         /**
@@ -712,6 +756,57 @@
                 selectedContent.classList.remove('hidden');
             }
         }
+        
+        // Modal Logic (Added)
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        /**
+         * Opens the modal, setting the full-resolution image source.
+         * @param {HTMLImageElement} clickedImage - The image element that was clicked.
+         */
+        function openModal(clickedImage) {
+            // Use the current image src as the full source
+            const fullSrc = clickedImage.getAttribute('src');
+            const altText = clickedImage.getAttribute('alt');
+
+            modalImage.src = fullSrc;
+            modalImage.alt = altText;
+
+            // Show the modal
+            imageModal.classList.remove('opacity-0', 'pointer-events-none');
+            imageModal.classList.add('opacity-100');
+
+            // Prevent scrolling on the body while the modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        /**
+         * Closes the modal.
+         * @param {Event} event - The click event (optional).
+         */
+        function closeModal(event) {
+            // Check if the click was directly on the modal backdrop, not the image content
+            if (event && event.target.closest('.relative.max-w-7xl')) {
+                return; // Do nothing if the click was inside the content container
+            }
+
+            // Hide the modal
+            imageModal.classList.add('opacity-0', 'pointer-events-none');
+            imageModal.classList.remove('opacity-100');
+
+            // Restore scrolling on the body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Optional: Close the modal when the ESC key is pressed
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal && imageModal.classList.contains('opacity-100')) {
+                closeModal();
+            }
+        });
+
+
         
         // Initialize the first tab when the script loads
         document.addEventListener('DOMContentLoaded', () => {
