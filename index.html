@@ -74,7 +74,7 @@
         }
 
         /* ======================================================= */
-        /* MAIN NAVIGATION TABS (Updated to match Service Tab Style)*/
+        /* MAIN NAVIGATION TABS */
         /* ======================================================= */
         .main-tab {
             flex-grow: 1; 
@@ -105,7 +105,6 @@
         /* ======================================================= */
         /* SERVICE SECTION TABS (Internal) */
         /* ======================================================= */
-        /* These remain the same for nested tabs */
         .tab-button {
             border-radius: 0.5rem 0.5rem 0 0; 
             padding: 0.75rem 0; 
@@ -167,8 +166,8 @@
         <!-- Row 1: Brand Name Header (Elvine's Studio) + Slogan + Icon -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 h-auto border-b border-gray-700/50 text-center">
             <div class="flex items-center justify-center space-x-3 mb-1">
-                <!-- Round Icon: roundic-everywhere.jpg -->
-                <img src="https://elvines.github.io/roundic-everywhere.jpg" 
+                <!-- Round Icon: roundic-everywhere.jpg (Updated Path) -->
+                <img src="https://elvobossy.github.io/roundic-everywhere.jpg" 
                      onerror="this.onerror=null; this.src='https://placehold.co/60x60/00BCD4/FFFFFF?text=E';" 
                      alt="Elvine's Studio Logo" 
                      class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-secondary-accent shadow-lg">
@@ -210,13 +209,12 @@
         <!-- 2. HOME SECTION (Default Active Content) -->
         <section id="home-content" class="main-content">
             <div class="relative overflow-hidden pt-4 pb-12 md:pt-12 md:pb-24">
-                <!-- Background Placeholder Image (Faded) -->
+                <!-- Background Image Update: homebg-banner.jpg -->
                 <div class="absolute inset-0 -z-10">
-                    <!-- Image is NOT clickable as it's a background element -->
-                    <img src="https://placehold.co/1920x1080/1a1a1a/00BCD4?text=Professional+Stylist+at+Work" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/1a1a1a/00BCD4';" 
-                         alt="Abstract beauty salon background" class="w-full h-full object-cover opacity-20">
-                    <!-- Dark Overlay for Readability -->
+                    <img src="https://elvobossy.github.io/homebg-banner.jpg" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/1a1a1a/00BCD4?text=Professional+Stylist+at+Work';" 
+                         alt="Luxurious Salon Interior Banner" class="w-full h-full object-cover"> <!-- Removed opacity-60 for better overlay control -->
+                    <!-- Dark Overlay for Readability - REVERTED opacity to /50 -->
                     <div class="absolute inset-0 bg-dark-bg/50"></div>
                 </div>
                 
@@ -245,47 +243,47 @@
                 <h3 class="text-4xl font-extrabold text-center secondary-accent-text mb-12">Our Signature Expertise</h3>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
                     
-                    <!-- Service 1: Knotless Braids (knotless-home.png) -->
+                    <!-- Service 1: Knotless Braids (knotless-home.jpg) -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
-                        <img src="https://elvines.github.io/knotless-home.png" 
+                        <img src="https://elvobossy.github.io/knotless-home.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Knotless+Braids';" 
                              alt="Knotless Braids Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
-                            <h4 class="text-xl font-semibold accent-text">Protective Braiding</h4>
-                            <p class="text-gray-400 text-sm">Neat, knotless, long-lasting styles.</p>
+                            <h4 class="text-xl font-semibold accent-text">Knotless Braids</h4>
+                            <p class="text-gray-400 text-sm">Neat, knotless, long-lasting protective styles.</p>
                         </div>
                     </div>
 
-                    <!-- Service 2: Loc Maintenance (locksretw-home.png) -->
+                    <!-- Service 2: Fluff Kinkys (fluffkinkys-home.jpg) -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
-                        <img src="https://elvines.github.io/locksretw-home.png" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Locs+%26+Retwist';" 
-                             alt="Locs Retwist Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
+                        <img src="https://elvobossy.github.io/fluffkinkys-home.jpg" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Fluffy+Kinky+Styles';" 
+                             alt="Fluffy Kinky Styles Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
-                            <h4 class="text-xl font-semibold accent-text">Loc Maintenance</h4>
-                            <p class="text-gray-400 text-sm">Professional retwist and health focus.</p>
+                            <h4 class="text-xl font-semibold accent-text">Fluffy Kinky Styles</h4>
+                            <p class="text-gray-400 text-sm">Voluminous, beautiful styles for kinky textures.</p>
                         </div>
                     </div>
 
-                    <!-- Service 3: Makeup Artistry (makeup-home.png) -->
+                    <!-- Service 3: Bridal Makeup (bridalmakp-home.jpg) -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
-                        <img src="https://elvines.github.io/makeup-home.png" 
+                        <img src="https://elvobossy.github.io/bridalmakp-home.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Bridal+Makeup';" 
-                             alt="Makeup Artistry Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
+                             alt="Bridal Makeup Look" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
-                            <h4 class="text-xl font-semibold accent-text">Makeup Artistry</h4>
-                            <p class="text-gray-400 text-sm">Flawless, long-wear event glam.</p>
+                            <h4 class="text-xl font-semibold accent-text">Bridal Makeup</h4>
+                            <p class="text-gray-400 text-sm">Flawless, long-wear event glam and bridal perfection.</p>
                         </div>
                     </div>
 
-                    <!-- Service 4: Nails & Pedicures (nailsart-home.png) -->
+                    <!-- Service 4: Nails & Pedicures (nailsart-home.jpg) -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
-                        <img src="https://elvines.github.io/nailsart-home.png" 
+                        <img src="https://elvobossy.github.io/nailsart-home.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Acrylic+Nails+Art';" 
                              alt="Nail Art Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
-                            <h4 class="text-xl font-semibold accent-text">Manicures & Pedicures</h4>
-                            <p class="text-gray-400 text-sm">Hygienic and artistic nail care.</p>
+                            <h4 class="text-xl font-semibold accent-text">Artistic Nail Care</h4>
+                            <p class="text-gray-400 text-sm">Hygienic and artistic manicures and pedicures.</p>
                         </div>
                     </div>
 
@@ -480,9 +478,9 @@
         <section id="about-content" class="main-content hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <!-- Stylist Image: stylist-aboutus.jpg -->
+                    <!-- Stylist Image: stylist-aboutus.jpg (Unchanged) -->
                     <div class="personal-card overflow-hidden">
-                        <img src="https://elvines.github.io/stylist-aboutus.jpg" 
+                        <img src="https://elvobossy.github.io/stylist-aboutus.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/800x600/3A3A3A/FF9800?text=Stylist+Elvine';" 
                              alt="Professional Stylist" class="w-full h-auto object-cover image-clickable" onclick="openModal(this)">
                     </div>
@@ -515,90 +513,90 @@
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     
-                    <!-- Gallery Item 1: naturaltw-gallery.jpg -->
+                    <!-- Gallery Item 1: naturaltw-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/naturaltw-gallery.jpg" 
+                        <img src="https://elvobossy.github.io/naturaltw-gallery.jpg" 
                              alt="Natural two-strand twist style" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
                              onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Natural+Twists';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 2: kinkytw-gallery.jpeg -->
+                    <!-- Gallery Item 2: kinkytw-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/kinkytw-gallery.jpeg" 
+                        <img src="https://elvobossy.github.io/kinkytw-gallery.jpg" 
                              alt="Kinky two-strand twist style" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
                              onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Kinky+Twists';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 3: dreadlock-gallery.jpg -->
+                    <!-- Gallery Item 3: dreadlock-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/dreadlock-gallery.jpg" 
+                        <img src="https://elvobossy.github.io/dreadlock-gallery.jpg" 
                              alt="Dreadlock retwist" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
                              onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Dreadlocks';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 4: sisterlock-gallery.jpg -->
+                    <!-- Gallery Item 4: sisterlock-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/sisterlock-gallery.jpg" 
+                        <img src="https://elvobossy.github.io/sisterlock-gallery.jpg" 
                              alt="Sisterlock intricate pattern" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
                              onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Sisterlocks';"
                              onclick="openModal(this)">
                     </div>
 
-                    <!-- Gallery Item 5: cornrows-gallery.jpg -->
+                    <!-- Gallery Item 5: protecrows-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/cornrows-gallery.jpg" 
-                             alt="Creative cornrows hairstyle" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Cornrows';"
+                        <img src="https://elvobossy.github.io/protecrows-gallery.jpg" 
+                             alt="Protective cornrows hairstyle" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Protective+Cornrows';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 6: knotless-gallery.webp -->
+                    <!-- Gallery Item 6: docnrows-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/knotless-gallery.webp" 
-                             alt="Knotless braids in webp format" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/FF9800?text=Knotless+WebP';"
+                        <img src="https://elvobossy.github.io/docnrows-gallery.jpg" 
+                             alt="Designer cornrows style" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/FF9800?text=Designer+Cornrows';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 7: knotless-gallery.png -->
+                    <!-- Gallery Item 7: kidsrows-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/knotless-gallery.png" 
-                             alt="Knotless braids in png format" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/00BCD4?text=Knotless+PNG';"
+                        <img src="https://elvobossy.github.io/kidsrows-gallery.jpg" 
+                             alt="Kids cornrows style" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Kids+Rows';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 8 (Repeated 1): naturaltw-gallery.jpg -->
+                    <!-- Gallery Item 8: knotless-gallery.jpg (Original) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/naturaltw-gallery.jpg" 
-                             alt="Natural twist updo (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Natural+Twists+2';"
+                        <img src="https://elvobossy.github.io/knotless-gallery.jpg" 
+                             alt="Knotless braids style" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Knotless+Braids';"
                              onclick="openModal(this)">
                     </div>
 
-                    <!-- Gallery Item 9 (Repeated 2): kinkytw-gallery.jpeg -->
+                    <!-- REPLACED REPEATED ITEM 9 (Unique Placeholder) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/kinkytw-gallery.jpeg" 
-                             alt="Kinky twist detail (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/00BCD4?text=Kinky+Twists+2';"
+                        <img src="https://placehold.co/600x600/393939/FFD700?text=Bridal+Hair+Updo" 
+                             alt="Bridal Hair Updo" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/393939/FFD700?text=Bridal+Hair+Updo';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 10 (Repeated 3): dreadlock-gallery.jpg -->
+                    <!-- REPLACED REPEATED ITEM 10 (Unique Placeholder) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/dreadlock-gallery.jpg" 
-                             alt="Dreadlock side view (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1E1E1E/FF9800?text=Dreadlocks+2';"
+                        <img src="https://placehold.co/600x600/393939/00FFFF?text=Pedicure+Nail+Art" 
+                             alt="Pedicure Nail Art" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/393939/00FFFF?text=Pedicure+Nail+Art';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 11 (Repeated 4): sisterlock-gallery.jpg -->
+                    <!-- REPLACED REPEATED ITEM 11 (Unique Placeholder) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/sisterlock-gallery.jpg" 
-                             alt="Sisterlock texture (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/282828/00BCD4?text=Sisterlocks+2';"
+                        <img src="https://placehold.co/600x600/393939/FA8072?text=Twist+Out+Pattern" 
+                             alt="Twist Out Pattern" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/393939/FA8072?text=Twist+Out+Pattern';"
                              onclick="openModal(this)">
                     </div>
-                    <!-- Gallery Item 12 (Repeated 5): cornrows-gallery.jpg -->
+                    <!-- REPLACED REPEATED ITEM 12 (Unique Placeholder) -->
                     <div class="overflow-hidden rounded-lg shadow-xl cursor-pointer personal-card p-2">
-                        <img src="https://elvines.github.io/cornrows-gallery.jpg" 
-                             alt="Cornrows pattern (Repeated)" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/121212/FF9800?text=Cornrows+2';"
+                        <img src="https://placehold.co/600x600/393939/ADFF2F?text=Kids+Hair+Design" 
+                             alt="Kids Hair Design" class="w-full h-auto object-cover transition duration-500 hover:scale-110 image-clickable"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/393939/ADFF2F?text=Kids+Hair+Design';"
                              onclick="openModal(this)">
                     </div>
                 </div>
