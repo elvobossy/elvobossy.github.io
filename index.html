@@ -139,16 +139,19 @@
             cursor: pointer;
         }
 
-        /* Carousel specific style for height */
-        #slides-container > div {
-            height: 20rem; /* Fixed height for small screens */
+        /* Responsive image aspect ratio fix for the new card layout */
+        .card-image {
+            /* Ensure the image container has a height on mobile */
+            height: 300px;
+            /* On desktop, allow it to stretch or use flex for alignment */
+            /* md:h-full handled by Tailwind classes */
         }
-
-        @media (min-width: 640px) {
-            #slides-container > div {
-                height: 24rem; /* Fixed height for larger screens */
-            }
+        /* Animation for the card to feel dynamic */
+        .feature-card-animation {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
         }
+        
     </style>
     
     <script>
@@ -246,37 +249,68 @@
                 </div>
             </div>
 
-            <!-- New: Auto-Advancing Carousel/Slider (NOW BEFORE Signature Expertise) -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-12">
-                <h3 class="text-4xl font-extrabold text-center accent-text mb-8">Random Project Highlights</h3>
-                <div id="image-carousel" class="relative overflow-hidden rounded-2xl shadow-2xl personal-card border border-main-accent/30">
-                    <!-- Slides Container - Content is now dynamically injected by JS -->
-                    <div id="slides-container" class="flex transition-transform duration-500 ease-in-out">
-                        <!-- JS will inject the random images here -->
+            <!-- DYNAMIC FEATURED CARD -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-12">
+                <!-- REMOVED (Rotating) -->
+                <h3 class="text-4xl font-extrabold text-center accent-text mb-8">Featured Service</h3>
+                
+                <div id="feature-card" class="personal-card overflow-hidden feature-card-animation">
+                    <!-- Responsive Flex Container: stacks on mobile, side-by-side on desktop -->
+                    <div class="flex flex-col md:flex-row">
+                        
+                        <!-- Image Area (Left Side on Desktop) -->
+                        <div class="md:w-1/2">
+                            <img 
+                                id="feature-image"
+                                src="" 
+                                alt="" 
+                                class="object-cover w-full card-image md:h-full rounded-t-xl md:rounded-l-xl md:rounded-tr-none image-clickable" 
+                                onclick="openModal(this)"
+                            >
+                        </div>
+
+                        <!-- Description Area (Right Side on Desktop) -->
+                        <div class="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
+                            
+                            <span id="feature-tag" class="inline-block bg-secondary-accent/20 secondary-accent-text text-sm font-semibold px-3 py-1 rounded-full mb-3 tracking-wider uppercase self-start">
+                                <!-- Dynamic Tag -->
+                            </span>
+
+                            <h2 id="feature-title" class="text-3xl font-extrabold text-white mb-4 leading-tight">
+                                <!-- Dynamic Title -->
+                            </h2>
+
+                            <p id="feature-description" class="text-gray-400 mb-6 text-base">
+                                <!-- Dynamic Description -->
+                            </p>
+
+                            <!-- Key Benefits -->
+                            <ul id="feature-benefits" class="space-y-3 text-gray-300 mb-8">
+                                <!-- Dynamic Benefits -->
+                            </ul>
+
+                            <!-- Call to Action Button -->
+                            <button 
+                                onclick="document.getElementById('nav-services').click()" 
+                                id="feature-cta"
+                                class="secondary-bg text-black font-bold py-3 px-6 rounded-full text-lg shadow-xl shadow-secondary-accent/30 
+                                       hover:scale-[1.02] transform transition duration-300 w-full md:w-auto self-start">
+                                <!-- Dynamic CTA Text -->
+                            </button>
+                        </div>
+                        
                     </div>
-                    
-                    <!-- Dots Navigation -->
-                    <div id="carousel-dots" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                        <!-- Dots will be populated by JS -->
-                    </div>
-                    
-                    <!-- Left/Right Arrows -->
-                    <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition focus:outline-none">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition focus:outline-none">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
                 </div>
             </div>
-            <!-- End Carousel -->
+            <!-- END DYNAMIC FEATURED CARD -->
 
-            <!-- Sample Services Grid (Home Images - Signature Expertise) -->
+
+            <!-- Signature Expertise Grid (Restored Fluffy Kinky) -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
                 <h3 class="text-4xl font-extrabold text-center secondary-accent-text mb-12">Our Signature Expertise</h3>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
                     
-                    <!-- Service 1: Knotless Braids (knotless-home.jpg) -->
+                    <!-- Service 1: Knotless Braids -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvobossy.github.io/knotless-home.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Knotless+Braids';" 
@@ -287,18 +321,18 @@
                         </div>
                     </div>
 
-                    <!-- Service 2: Fluff Kinkys (fluffkinkys-home.jpg) -->
+                    <!-- Service 2: Fluffy Kinkys (RESTORED) -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvobossy.github.io/fluffkinkys-home.jpg" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Fluffy+Kinky+Styles';" 
-                             alt="Fluffy Kinky Styles Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Fluffy+Kinky+Twists';" 
+                             alt="Fluffy Kinky Twists Example" class="w-full h-48 object-cover transition duration-500 hover:scale-105 image-clickable" onclick="openModal(this)">
                         <div class="p-4">
-                            <h4 class="text-xl font-semibold accent-text">Fluffy Kinky Styles</h4>
+                            <h4 class="text-xl font-semibold accent-text">Fluffy Kinky Twists</h4>
                             <p class="text-gray-400 text-sm">Voluminous, beautiful styles for kinky textures.</p>
                         </div>
                     </div>
 
-                    <!-- Service 3: Bridal Makeup (bridalmakp-home.jpg) -->
+                    <!-- Service 3: Bridal Makeup -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvobossy.github.io/bridalmakp-home.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Bridal+Makeup';" 
@@ -309,7 +343,7 @@
                         </div>
                     </div>
 
-                    <!-- Service 4: Nails & Pedicures (nailsart-home.jpg) -->
+                    <!-- Service 4: Nails & Pedicures -->
                     <div class="personal-card overflow-hidden transition duration-300 hover:shadow-xl hover:shadow-main-accent/30">
                         <img src="https://elvobossy.github.io/nailsart-home.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/600x400/3d3d3d/00BCD4?text=Acrylic+Nails+Art';" 
@@ -362,20 +396,32 @@
                                 class="w-48 h-48 object-cover rounded-full border-4 border-secondary-accent shadow-2xl">
                         </div>
 
+                        <!-- Service Card Content (Updated to Grid Layout) -->
                         <div class="personal-card p-8 md:p-12 mb-8">
                             <h3 class="text-4xl accent-text mb-6">Expert Kenyan & Natural Protective Styles</h3>
-                            <p class="text-gray-300 mb-6 text-lg">
+                            <p class="text-gray-300 mb-8 text-lg">
                                 We specialize in all protective styles including Sisterlocks, Knotless Braids, Fluffy Kinkys, and Havana Curls. 
                                 Final cost is determined by the style and is always <b class="font-semibold secondary-accent-text">negotiable</b>.
                                 Please contact us directly for a detailed quote.
                             </p>
-                            <ul class="space-y-3 text-gray-300 list-disc pl-5">
-                                <li>Knotless Braids (Small/Medium/Large)</li>
-                                <li>Box Braids & Triangle Braids</li>
-                                <li>Dreadlock Retwist & Styling</li>
-                                <li>Crochet Braids & Weaves</li>
-                                <li>Kids Styles (Cornrows, Plaits)</li>
-                            </ul>
+                            
+                            <!-- NEW GRID LAYOUT -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-surface-dark p-4 rounded-lg shadow-md">
+                                    <h4 class="text-xl font-semibold accent-text mb-2">Knotless & Box Braids</h4>
+                                    <p class="text-gray-400 text-sm">Seamless, tension-free application for all lengths and sizes (small, medium, large).</p>
+                                </div>
+                                <div class="bg-surface-dark p-4 rounded-lg shadow-md">
+                                    <h4 class="text-xl font-semibold accent-text mb-2">Loc Services & Retwist</h4>
+                                    <p class="text-gray-400 text-sm">Professional care for dreadlocks and Sisterlocks, ensuring neat, healthy growth and styling.</p>
+                                </div>
+                                <div class="bg-surface-dark p-4 rounded-lg shadow-md">
+                                    <h4 class="text-xl font-semibold accent-text mb-2">Crochet & Weaves</h4>
+                                    <p class="text-gray-400 text-sm">High-quality installation of weaves, wigs, and crochet styles for volume and versatility.</p>
+                                </div>
+                            </div>
+                            <!-- END NEW GRID LAYOUT -->
+
                             <button onclick="document.getElementById('nav-contact').click()" class="secondary-bg text-black font-bold mt-6 inline-block py-3 px-8 rounded-full hover:scale-105 transition duration-300">
                                 Book Your Consultation
                             </button>
@@ -696,166 +742,129 @@
         </div>
     </div>
 
-    <!-- JavaScript for Tab Functionality, Modal, and Carousel -->
+    <!-- JavaScript for Dynamic Card, Tab Functionality and Modal -->
     <script>
-        
-        let carouselInterval;
-        let currentSlide = 0;
-        let totalSlides = 0;
-        let slidesContainer;
-        let slideWidth = 0;
-        
-        // 1. Define the complete list of gallery image URLs (Source for random carousel)
-        const galleryImageUrls = [
-            { src: 'https://elvobossy.github.io/naturaltw-gallery.jpg', alt: 'Natural Twists' },
-            { src: 'https://elvobossy.github.io/kinkytw-gallery.jpg', alt: 'Kinky Twists' },
-            { src: 'https://elvobossy.github.io/dreadlock-gallery.jpg', alt: 'Dreadlock Retwist' },
-            { src: 'https://elvobossy.github.io/sisterlock-gallery.jpg', alt: 'Sisterlock Pattern' },
-            { src: 'https://elvobossy.github.io/protecrows-gallery.jpg', alt: 'Protective Cornrows' },
-            { src: 'https://elvobossy.github.io/docnrows-gallery.jpg', alt: 'Designer Cornrows' },
-            { src: 'https://elvobossy.github.io/kidsrows-gallery.jpg', alt: 'Kids Cornrows' },
-            { src: 'https://elvobossy.github.io/knotless-gallery.jpg', alt: 'Knotless Braids Style' }
+        // --- DYNAMIC FEATURED CARD LOGIC ---
+        const FEATURED_STYLES = [
+            {
+                tag: "Signature Protective Look",
+                title: "The Perfect Fluffy Kinky Twist",
+                description: "Discover the ultimate protective style that offers volume, texture, and low maintenance. We ensure minimal tension for maximum hair health.",
+                imageSrc: "https://elvobossy.github.io/fluffkinkys-home.jpg",
+                benefits: ["Low Tension, High Comfort", "Incredible Volume & Texture", "Durable & Long-Lasting"],
+                ctaText: "View Pricing & Book Now"
+            },
+            {
+                tag: "Tension-Free Mastery",
+                title: "Seamless Knotless Braids",
+                description: "The most requested style! Our knotless braids are applied with precision, providing a natural-looking finish that doesn't damage your edges.",
+                imageSrc: "https://elvobossy.github.io/knotless-gallery.jpg",
+                benefits: ["Protects Edges and Scalp", "Lightweight Feel", "Versatile Styling Options"],
+                ctaText: "Explore Knotless Styles"
+            },
+            {
+                tag: "Special Event Glamour",
+                title: "Flawless Bridal Makeup",
+                description: "Look your absolute best on your special day. We offer long-wear, customized makeup artistry that ensures you shine from the ceremony to the reception.",
+                imageSrc: "https://elvobossy.github.io/bridalmakp-home.jpg",
+                benefits: ["Customized Color Palette", "Out-Call Service Available", "All-Day, Flawless Finish"],
+                ctaText: "Schedule Bridal Consult"
+            }
         ];
 
-        /**
-         * Shuffles an array using the Fisher-Yates (Knuth) algorithm.
-         * @param {Array<Object>} array - The array to shuffle.
-         * @returns {Array<Object>} The shuffled array.
-         */
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
+        let currentFeatureIndex = 0;
+        let featureIntervalId;
+
+        const featureCard = document.getElementById('feature-card');
 
         /**
-         * Initializes the image carousel functionality.
+         * Updates the content of the featured card with the next service in the rotation.
          */
-        function initializeCarousel() {
-            slidesContainer = document.getElementById('slides-container');
-            if (!slidesContainer) return;
+        function updateFeaturedCard() {
+            // Apply a fade-out effect
+            featureCard.style.opacity = '0';
             
-            // Clear existing content
-            slidesContainer.innerHTML = '';
-            
-            // 2. Randomly select 4 images from the gallery
-            const shuffledImages = shuffleArray([...galleryImageUrls]);
-            const carouselImages = shuffledImages.slice(0, 4);
-            totalSlides = carouselImages.length;
-            
-            if (totalSlides === 0) return;
+            setTimeout(() => {
+                const feature = FEATURED_STYLES[currentFeatureIndex];
 
-            // 3. Dynamically create slide elements
-            carouselImages.forEach((imgData, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'w-full flex-shrink-0'; // height is defined in <style>
+                // Update Text Elements
+                document.getElementById('feature-tag').textContent = feature.tag;
+                document.getElementById('feature-title').textContent = feature.title;
+                document.getElementById('feature-description').textContent = feature.description;
+                document.getElementById('feature-cta').textContent = feature.ctaText;
                 
-                const img = document.createElement('img');
-                img.src = imgData.src;
-                img.alt = imgData.alt;
-                img.className = 'w-full h-full object-cover';
-                img.onerror = () => { 
-                    img.src = `https://placehold.co/1200x400/4D4D4D/${index % 2 === 0 ? '00BCD4' : 'FF9800'}?text=${imgData.alt}`; 
-                };
+                // Update Image Source
+                const imgElement = document.getElementById('feature-image');
+                imgElement.src = feature.imageSrc;
+                imgElement.alt = feature.title;
 
-                slide.appendChild(img);
-                slidesContainer.appendChild(slide);
-            });
-            
-            // Re-calculate width and set up nav
-            const slides = slidesContainer.children;
-            slideWidth = slides.length > 0 ? slides[0].clientWidth : 0;
-            const prevButton = document.getElementById('prev-slide');
-            const nextButton = document.getElementById('next-slide');
-            const dotsContainer = document.getElementById('carousel-dots');
-            
-            // 4. Setup Dots
-            dotsContainer.innerHTML = ''; 
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'w-3 h-3 rounded-full bg-gray-400 opacity-70 hover:opacity-100 transition duration-300';
-                dot.setAttribute('data-slide-index', i);
-                dot.onclick = () => { stopAutoAdvance(); goToSlide(i); startAutoAdvance(); };
-                dotsContainer.appendChild(dot);
+                // Update Benefits List
+                const benefitsList = document.getElementById('feature-benefits');
+                benefitsList.innerHTML = ''; // Clear existing
+                feature.benefits.forEach(benefit => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-center';
+                    li.innerHTML = `<i class="fas fa-check-circle text-lg accent-text mr-3"></i> ${benefit}`;
+                    benefitsList.appendChild(li);
+                });
+
+                // Apply fade-in effect
+                featureCard.style.opacity = '1';
+
+                // Move to the next index
+                currentFeatureIndex = (currentFeatureIndex + 1) % FEATURED_STYLES.length;
+            }, 500); // Wait for half a second (transition time)
+        }
+
+        /**
+         * Starts the feature rotation interval.
+         */
+        function startFeatureRotation() {
+            updateFeaturedCard(); // Load first feature immediately
+            if (featureIntervalId) clearInterval(featureIntervalId);
+            // Rotate every 6 seconds (6000 milliseconds)
+            featureIntervalId = setInterval(updateFeaturedCard, 6000); 
+        }
+
+        // --- MODAL LOGIC ---
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        /**
+         * Opens the modal, setting the full-resolution image source.
+         * @param {HTMLImageElement} clickedImage - The image element that was clicked.
+         */
+        function openModal(clickedImage) {
+            const fullSrc = clickedImage.getAttribute('src');
+            const altText = clickedImage.getAttribute('alt');
+
+            modalImage.src = fullSrc;
+            modalImage.alt = altText;
+
+            imageModal.classList.remove('opacity-0', 'pointer-events-none');
+            imageModal.classList.add('opacity-100');
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        /**
+         * Closes the modal.
+         * @param {Event} event - The click event (optional).
+         */
+        function closeModal(event) {
+            // Check if the click occurred inside the modal content to prevent closing 
+            if (event && event.target.closest('.relative.max-w-7xl')) {
+                return; 
             }
-            
-            // 5. Navigation Handlers
-            prevButton.onclick = () => { stopAutoAdvance(); prevSlide(); startAutoAdvance(); };
-            nextButton.onclick = () => { stopAutoAdvance(); nextSlide(); startAutoAdvance(); };
 
-            // 6. Start Auto-Advance
-            startAutoAdvance();
+            imageModal.classList.add('opacity-0', 'pointer-events-none');
+            imageModal.classList.remove('opacity-100');
 
-            // 7. Initial state update
-            goToSlide(0);
+            document.body.style.overflow = 'auto';
         }
 
-        /**
-         * Starts the auto-advancing interval for the carousel.
-         */
-        function startAutoAdvance() {
-            clearInterval(carouselInterval);
-            // Advance every 5 seconds
-            carouselInterval = setInterval(nextSlide, 3500); // Set to 3.5 seconds
-        }
 
-        /**
-         * Stops the auto-advancing interval.
-         */
-        function stopAutoAdvance() {
-            clearInterval(carouselInterval);
-        }
-
-        /**
-         * Navigates to a specific slide index.
-         * @param {number} index - The index of the slide to show.
-         */
-        function goToSlide(index) {
-            if (!slidesContainer) return;
-            currentSlide = (index + totalSlides) % totalSlides; // Handle wrapping
-            
-            // Recalculate width on transition to ensure responsiveness
-            const slides = slidesContainer.children;
-            if (slides.length > 0) {
-                slideWidth = slides[0].clientWidth;
-            } else {
-                 return;
-            }
-            
-            const offset = -currentSlide * slideWidth;
-            slidesContainer.style.transform = `translateX(${offset}px)`;
-            updateDots();
-        }
-
-        /**
-         * Advances to the next slide.
-         */
-        function nextSlide() {
-            goToSlide(currentSlide + 1);
-        }
-
-        /**
-         * Goes back to the previous slide.
-         */
-        function prevSlide() {
-            goToSlide(currentSlide - 1);
-        }
-
-        /**
-         * Updates the visual state of the carousel dots.
-         */
-        function updateDots() {
-            document.querySelectorAll('#carousel-dots button').forEach((dot, index) => {
-                dot.classList.remove('bg-main-accent', 'opacity-100');
-                dot.classList.add('bg-gray-400', 'opacity-70');
-                if (index === currentSlide) {
-                    dot.classList.add('bg-main-accent', 'opacity-100');
-                    dot.classList.remove('bg-gray-400', 'opacity-70');
-                }
-            });
-        }
+        // --- TAB SWITCHING LOGIC ---
         
         /**
          * Switches the active MAIN content section (Home, Services, About Us, etc.).
@@ -882,6 +891,14 @@
             if (selectedContent) {
                 selectedContent.classList.remove('hidden');
                 
+                // Special case: if Home is selected, start rotation
+                if (targetContentId === 'home-content') {
+                    startFeatureRotation();
+                } else {
+                    // Stop rotation on other pages
+                    if (featureIntervalId) clearInterval(featureIntervalId);
+                }
+
                 // If the Services tab is clicked, ensure the Hair tab is visible
                 if (targetContentId === 'services-content') {
                     const hairTabButton = document.querySelector('.tab-button[data-tab="hair"]');
@@ -919,62 +936,6 @@
             }
         }
         
-        // Modal Logic
-        const imageModal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-
-        /**
-         * Opens the modal, setting the full-resolution image source.
-         * @param {HTMLImageElement} clickedImage - The image element that was clicked.
-         */
-        function openModal(clickedImage) {
-            stopAutoAdvance(); // Pause carousel
-            // Use the current image src as the full source
-            const fullSrc = clickedImage.getAttribute('src');
-            const altText = clickedImage.getAttribute('alt');
-
-            modalImage.src = fullSrc;
-            modalImage.alt = altText;
-
-            // Show the modal
-            imageModal.classList.remove('opacity-0', 'pointer-events-none');
-            imageModal.classList.add('opacity-100');
-
-            // Prevent scrolling on the body while the modal is open
-            document.body.style.overflow = 'hidden';
-        }
-
-        /**
-         * Closes the modal.
-         * @param {Event} event - The click event (optional).
-         */
-        function closeModal(event) {
-            // Check if the click was directly on the modal backdrop, not the image content
-            if (event && event.target.closest('.relative.max-w-7xl')) {
-                return; // Do nothing if the click was inside the content container
-            }
-
-            // Hide the modal
-            imageModal.classList.add('opacity-0', 'pointer-events-none');
-            imageModal.classList.remove('opacity-100');
-
-            // Restore scrolling on the body
-            document.body.style.overflow = 'auto';
-            startAutoAdvance(); // Restart carousel
-        }
-
-        // Custom Message Box function (replaces alert/confirm)
-        function showUserMessage(message, type = 'info') {
-            const messageBox = document.createElement('div');
-            // Use accent colors for the message box
-            messageBox.className = `fixed bottom-5 right-5 p-4 rounded-lg shadow-xl text-black z-50 transition-transform transform duration-300 ${type === 'success' ? 'bg-main-accent font-bold' : 'bg-secondary-accent font-bold'}`;
-            messageBox.textContent = message;
-            document.body.appendChild(messageBox);
-            setTimeout(() => {
-                messageBox.remove();
-            }, 4000);
-        }
-        
         // Optional: Close the modal when the ESC key is pressed
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && imageModal && imageModal.classList.contains('opacity-100')) {
@@ -984,12 +945,12 @@
 
 
         
-        // Initialize the first tab and carousel on window load
+        // Initialize the first tab and start the rotation on window load
         window.onload = function () {
              // Main Tab Initialization
              const initialMainTab = document.getElementById('nav-home');
              if(initialMainTab) {
-                 switchMainContent(initialMainTab);
+                 switchMainContent(initialMainTab); // This call now handles starting the rotation
              }
              
              // Nested Service Tab Initialization
@@ -1001,19 +962,6 @@
                      initialServiceContent.classList.remove('hidden');
                  }
              }
-
-             // Initialize the Carousel
-             initializeCarousel();
-             
-             // Re-initialize carousel on window resize to fix slide width
-             window.addEventListener('resize', () => {
-                 // Debounce resize events for performance
-                 clearTimeout(window.resizeTimer);
-                 window.resizeTimer = setTimeout(() => {
-                    stopAutoAdvance();
-                    initializeCarousel(); // Recalculates width and restarts auto-advance
-                 }, 250);
-             });
         };
     </script>
 </body>
