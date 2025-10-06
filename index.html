@@ -213,7 +213,7 @@
                 <div class="absolute inset-0 -z-10">
                     <img src="https://elvobossy.github.io/homebg-banner.jpg" 
                          onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/1a1a1a/00BCD4?text=Professional+Stylist+at+Work';" 
-                         alt="Luxurious Salon Interior Banner" class="w-full h-full object-cover"> <!-- Removed opacity-60 for better overlay control -->
+                         alt="Luxurious Salon Interior Banner" class="w-full h-full object-cover"> 
                     <!-- Dark Overlay for Readability - REVERTED opacity to /50 -->
                     <div class="absolute inset-0 bg-dark-bg/50"></div>
                 </div>
@@ -318,68 +318,38 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div id="service-tab-content">
                     
-                    <!-- Hair & Braids Content (Default Active) - UPDATED TEXT HERE -->
+                    <!-- Hair & Braids Content (Default Active) -->
                     <div id="content-hair" class="service-tab-content">
-                        <div class="personal-card p-8 md:p-12">
-                            <h3 class="text-4xl accent-text mb-6">Expert Kenyan & Natural Protective Styles</h3>
-                            <!-- UPDATED PRICING TEXT: Explicitly states cost is determined by style and is negotiable -->
-                            <p class="text-gray-300 mb-8 text-lg">
-                                We are specialists in protective styles popular across Kenya, focusing on technique and longevity. The final braiding cost is determined by the style's complexity and is always <b class="font-semibold secondary-accent-text">negotiable</b>. Please contact us directly via phone or WhatsApp for a detailed quote.
-                            </p>
-                            <!-- Two Column Grid for Detailed Hair Services -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                                
-                                <!-- Column 1: Locs & Twists -->
-                                <div>
-                                    <h4 class="text-2xl font-extrabold secondary-accent-text mb-4 border-b border-gray-700 pb-2">Locs & Specialized Twists</h4>
-                                    
-                                    <!-- Sisterlocks -->
-                                    <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4">
-                                        <h5 class="text-xl font-semibold accent-text mb-1">Sisterlocks</h5>
-                                        <p class="text-gray-400 text-sm">Interlocking natural hair for tiny, uniform locs. Requires prior consultation and specialized technique.</p>
-                                    </div>
-
-                                    <!-- Dreadlocks -->
-                                    <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4">
-                                        <h5 class="text-xl font-semibold accent-text mb-1">Dreadlocks & Retwist</h5>
-                                        <p class="text-gray-400 text-sm">Professional maintenance, retwisting, and deep conditioning for traditional locs.</p>
-                                    </div>
-
-                                    <!-- Micro-Twist & Twist-Out -->
-                                    <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4">
-                                        <h5 class="text-xl font-semibold accent-text mb-1">Micro-Twist & Twist-Out</h5>
-                                        <p class="text-gray-400 text-sm">Small, neat twists on natural hair or with extensions, perfect for a lightweight look, plus definition styling.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Column 2: Braids & Extensions -->
-                                <div>
-                                    <h4 class="text-2xl font-extrabold secondary-accent-text mb-4 border-b border-gray-700 pb-2">Braids, Weaves & Crochets</h4>
-
-                                    <!-- Ethiopian Lines & Cornrows -->
-                                    <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4">
-                                        <h5 class="text-xl font-semibold accent-text mb-1">Cornrows & Ethiopian Lines</h5>
-                                        <p class="text-gray-400 text-sm">Intricate and classic cornrows, including complex geometric "Ethiopian Lines" designs.</p>
-                                    </div>
-                                    
-                                    <!-- Knotless Braids -->
-                                    <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4">
-                                        <h5 class="text-xl font-semibold accent-text mb-1">Knotless Braids (Box/Triangle)</h5>
-                                        <p class="text-gray-400 text-sm">Our signature protective style, offering less tension and a natural grow-out look.</p>
-                                    </div>
-
-                                    <!-- Havana-Curl & Weaving -->
-                                    <div class="bg-surface-dark p-4 rounded-lg shadow-md mb-4">
-                                        <h5 class="text-xl font-semibold accent-text mb-1">Havana-Curl & Weaving</h5>
-                                        <p class="text-gray-400 text-sm">Voluminous kinky twists (Havana-Curl) and professional, flat sew-in weaving/frontal installs.</p>
-                                    </div>
-                                </div>
-                            </div>
+                         <!-- UPDATED: Using knotless-gallery.jpg -->
+                        <div class="flex justify-center mb-8">
+                            <img src="https://elvobossy.github.io/knotless-gallery.jpg" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/192x192/1E1E1E/00BCD4?text=BRAIDING';" 
+                                alt="Knotless braids pattern" 
+                                class="w-48 h-48 object-cover rounded-full border-4 border-secondary-accent shadow-2xl">
                         </div>
-                        <!-- Out-Call CTA within Services - REMOVED TRANSPORT FEE TEXT -->
-                        <div class="mt-8 personal-card p-6 text-center secondary-bg/20 border-l-4 border-secondary-accent">
+
+                        <div class="personal-card p-8 md:p-12 mb-8">
+                            <h3 class="text-4xl accent-text mb-6">Expert Kenyan & Natural Protective Styles</h3>
+                            <p class="text-gray-300 mb-6 text-lg">
+                                We specialize in all protective styles including Sisterlocks, Knotless Braids, Fluffy Kinkys, and Havana Curls. 
+                                Final cost is determined by the style and is always <b class="font-semibold secondary-accent-text">negotiable</b>.
+                                Please contact us directly for a detailed quote.
+                            </p>
+                            <ul class="space-y-3 text-gray-300 list-disc pl-5">
+                                <li>Knotless Braids (Small/Medium/Large)</li>
+                                <li>Box Braids & Triangle Braids</li>
+                                <li>Dreadlock Retwist & Styling</li>
+                                <li>Crochet Braids & Weaves</li>
+                                <li>Kids Styles (Cornrows, Plaits)</li>
+                            </ul>
+                            <button onclick="document.getElementById('nav-contact').click()" class="secondary-bg text-black font-bold mt-6 inline-block py-3 px-8 rounded-full hover:scale-105 transition duration-300">
+                                Book Your Consultation
+                            </button>
+                        </div>
+                        
+                        <!-- Out-Call CTA -->
+                        <div class="personal-card p-6 text-center secondary-bg/20 border-l-4 border-secondary-accent">
                             <h4 class="text-3xl font-extrabold secondary-accent-text">Mobile Out-Call Service</h4>
-                            <!-- UPDATED CTA TEXT: Removed "Transport fees apply." -->
                             <p class="text-gray-300 mt-2">Can't make it to the salon? We bring the expertise to you! Enjoy any of these services at your location.</p>
                             <button onclick="document.getElementById('nav-contact').click()" class="secondary-bg text-black font-bold mt-4 inline-block py-2 px-8 rounded-full hover:scale-105 transition duration-300">
                                 Request Out-Call
@@ -387,8 +357,17 @@
                         </div>
                     </div>
 
-                    <!-- Makeup Artistry Content - PRICES REMOVED -->
+
+                    <!-- Makeup Artistry Content -->
                     <div id="content-makeup" class="service-tab-content hidden">
+                        <!-- UPDATED: Using bridalmakp-home.jpg -->
+                        <div class="flex justify-center mb-8">
+                            <img src="https://elvobossy.github.io/bridalmakp-home.jpg" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/192x192/1E1E1E/FF9800?text=MAKEUP';" 
+                                alt="Professional bridal makeup look" 
+                                class="w-48 h-48 object-cover rounded-full border-4 border-main-accent shadow-2xl">
+                        </div>
+
                         <div class="personal-card p-8 md:p-12">
                             <h3 class="text-4xl accent-text mb-6">Flawless Finish, Anywhere You Are</h3>
                             <p class="text-gray-300 mb-8 text-lg">
@@ -407,8 +386,16 @@
                         </div>
                     </div>
                     
-                    <!-- Nails & Pedicures Content - PRICES REMOVED -->
+                    <!-- Nails & Pedicures Content -->
                     <div id="content-nails" class="service-tab-content hidden">
+                         <!-- UPDATED: Using nailsart-home.jpg -->
+                        <div class="flex justify-center mb-8">
+                            <img src="https://elvobossy.github.io/nailsart-home.jpg" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/192x192/1E1E1E/00BCD4?text=NAILS';" 
+                                alt="Artistic nail extensions" 
+                                class="w-48 h-48 object-cover rounded-full border-4 border-secondary-accent shadow-2xl">
+                        </div>
+
                         <div class="personal-card p-8 md:p-12">
                             <h3 class="text-4xl accent-text mb-6">Expert Nail Artistry & Sanitation</h3>
                             <p class="text-gray-300 mb-8 text-lg">
@@ -544,7 +531,7 @@
                     <!-- The URL uses the standard wa.me format without the plus sign, and includes a URL-encoded pre-filled message. -->
                     <a href="https://wa.me/254717345814?text=Dream%20Style%20Request:%20I%20am%20looking%20for%20a%20unique%20style." 
                        target="_blank" 
-                       class="accent-bg text-black font-bold text-lg inline-block py-3 px-10 rounded-full shadow-xl hover:scale-105 transform transition duration-300">
+                       class="accent-bg text-black font-bold text-lg w-full md:w-auto inline-block py-3 px-10 rounded-full shadow-xl hover:scale-105 transform transition duration-300">
                         <i class="fab fa-whatsapp mr-2"></i> Request Your Custom Style
                     </a>
                 </div>
@@ -662,7 +649,6 @@
         
         /**
          * Switches the active MAIN content section (Home, Services, About Us, etc.).
-         * This uses the data-section attribute on the nav link to find the content container ID.
          * @param {HTMLElement} clickedButton - The navigation link element that was clicked.
          */
         function switchMainContent(clickedButton) {
@@ -685,6 +671,15 @@
             const selectedContent = document.getElementById(targetContentId);
             if (selectedContent) {
                 selectedContent.classList.remove('hidden');
+                
+                // If the Services tab is clicked, ensure the Hair tab is visible
+                if (targetContentId === 'services-content') {
+                    // Check and activate hair tab if not already active
+                    const hairTabButton = document.querySelector('.tab-button[data-tab="hair"]');
+                    if (hairTabButton && !hairTabButton.classList.contains('active')) {
+                        switchServiceTab(hairTabButton, 'hair');
+                    }
+                }
             }
         }
 
